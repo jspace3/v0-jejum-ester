@@ -110,7 +110,7 @@ export function ImageCarousel({ onLastImage }: { onLastImage?: (isLast: boolean)
       <section className="relative w-full bg-gray-900">
         <div className="relative flex-shrink-0">
           <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: "url(/cta-background.jpeg)" }}>
-            <div className="absolute inset-0 bg-black/70" />
+            <div className="absolute inset-0 bg-black/40" />
           </div>
 
           <div className="relative z-10 flex flex-col items-center justify-center px-4 py-12 md:py-16 text-center">
