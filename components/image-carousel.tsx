@@ -93,29 +93,36 @@ export function ImageCarousel({ onLastImage }: { onLastImage?: (isLast: boolean)
 
   if (showFinalPage) {
     return (
-      <section className="relative min-h-screen w-full overflow-hidden bg-gray-900">
-        <div className="relative">
+      <section className="relative w-full bg-gray-900">
+        <div className="relative flex-shrink-0">
           <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: "url(/cta-background.jpeg)" }}>
-            <div className="absolute inset-0 bg-black/60" />
+            <div className="absolute inset-0 bg-black/70" />
           </div>
 
-          <div className="relative z-10 flex flex-col items-center justify-center px-4 py-16 text-center md:py-24">
-            <h2 className="mb-4 text-balance text-3xl font-bold leading-tight text-white md:text-5xl lg:text-6xl drop-shadow-2xl">
+          <div className="relative z-10 flex flex-col items-center justify-center px-4 py-12 md:py-16 text-center">
+            <h2 className="mb-3 text-balance text-2xl font-bold leading-tight text-white md:text-5xl lg:text-6xl drop-shadow-2xl md:mb-4">
               Faça agora o Jejum de Ester comigo e outras milhares de mulheres
             </h2>
 
-            <p className="mb-8 text-lg text-white/95 md:text-xl lg:text-2xl drop-shadow-lg max-w-3xl">
+            <p className="mb-6 text-base text-white/95 md:text-xl lg:text-2xl drop-shadow-lg max-w-3xl md:mb-8">
               Desbloqueie o aplicativo completo do passo a passo do Jejum de Ester
             </p>
 
-            <Button
-              size="lg"
-              className="animate-pulse-subtle bg-gradient-to-r from-amber-500 to-amber-600 px-8 py-4 text-base font-bold text-white shadow-2xl transition-all duration-300 hover:scale-105 hover:from-amber-600 hover:to-amber-700 md:px-10 md:py-5 md:text-lg rounded-full"
+            <a
+              href="https://pay.cakto.com.br/5cqa6mn_649244"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block"
             >
-              Participar Agora
-            </Button>
+              <Button
+                size="lg"
+                className="animate-pulse-subtle bg-gradient-to-r from-amber-500 to-amber-600 px-6 py-3 text-sm font-bold text-white shadow-2xl transition-all duration-300 hover:scale-105 hover:from-amber-600 hover:to-amber-700 md:px-10 md:py-5 md:text-lg rounded-full"
+              >
+                Participar Agora
+              </Button>
+            </a>
 
-            <p className="mt-6 text-sm text-white/90 md:text-base drop-shadow-md">
+            <p className="mt-4 text-xs text-white/90 md:text-base drop-shadow-md md:mt-6">
               Junte-se a milhares de mulheres em transformação espiritual
             </p>
           </div>
@@ -123,7 +130,7 @@ export function ImageCarousel({ onLastImage }: { onLastImage?: (isLast: boolean)
 
         <div className="relative z-10 w-full px-4 py-8 md:py-12">
           <div className="mx-auto w-full max-w-3xl">
-            <div className="space-y-3 px-4">
+            <div className="space-y-3 px-4 pb-8">
               <Comment
                 name="Juliana Santos"
                 time="há 2 horas"
@@ -149,6 +156,56 @@ export function ImageCarousel({ onLastImage }: { onLastImage?: (isLast: boolean)
                 time="há 1 dia"
                 text="Estou ansiosa para começar em dezembro! Tenho certeza que Deus vai fazer grandes coisas"
               />
+              <Comment
+                name="Roberta Lima"
+                time="há 1 dia"
+                text="Em novembro experimentei a presença de Deus de uma forma que nunca tinha vivido antes! 💫"
+              />
+              <Comment
+                name="Andreia Silva"
+                time="há 2 dias"
+                text="Me inscrevi! Mal posso esperar para começar essa jornada espiritual"
+              />
+              <Comment
+                name="Beatriz Souza"
+                time="há 2 dias"
+                text="Fiz na turma passada e foi libertador! Minha família toda viu a diferença em mim"
+              />
+              <Comment
+                name="Luciana Martins"
+                time="há 3 dias"
+                text="Participei em novembro e recebi a resposta que estava esperando há anos! Glória a Deus! 🙌"
+              />
+              <Comment
+                name="Daniela Ferreira"
+                time="há 3 dias"
+                text="Quero muito fazer parte! Sinto que esse é o meu momento de buscar a Deus intensamente"
+              />
+              <Comment
+                name="Renata Carvalho"
+                time="há 4 dias"
+                text="Já estou na minha segunda vez! A transformação que tive em novembro foi tão profunda que quero continuar"
+              />
+              <Comment
+                name="Vanessa Pereira"
+                time="há 4 dias"
+                text="Como funciona? Posso começar mesmo sendo iniciante no jejum?"
+              />
+              <Comment
+                name="Simone Ribeiro"
+                time="há 5 dias"
+                text="Fiz em novembro e meu relacionamento com Deus nunca mais foi o mesmo! Indico de olhos fechados ❤️"
+              />
+              <Comment
+                name="Cristina Araújo"
+                time="há 5 dias"
+                text="Esse jejum mudou minha vida! Vou fazer novamente em dezembro com minhas amigas"
+              />
+              <Comment
+                name="Amanda Nunes"
+                time="há 6 dias"
+                text="Acabei de me inscrever! Estou muito animada para começar essa jornada"
+              />
             </div>
           </div>
         </div>
@@ -172,9 +229,9 @@ export function ImageCarousel({ onLastImage }: { onLastImage?: (isLast: boolean)
   }
 
   return (
-    <section className="py-8 md:py-12 px-4 md:px-6">
-      <div className="max-w-2xl mx-auto">
-        <div className="relative overflow-hidden rounded-2xl shadow-2xl aspect-[9/16]">
+    <section className="flex-1 flex items-center justify-center bg-gray-50 px-4 py-4">
+      <div className="max-w-md w-full flex flex-col h-full max-h-[calc(100vh-140px)] justify-center">
+        <div className="relative overflow-hidden rounded-2xl shadow-2xl w-full" style={{ aspectRatio: "9/16" }}>
           <div className="relative h-full bg-black">
             {images.map((image, index) => (
               <div
@@ -183,7 +240,11 @@ export function ImageCarousel({ onLastImage }: { onLastImage?: (isLast: boolean)
                   index === currentIndex ? "opacity-100 scale-100" : "opacity-0 scale-105"
                 }`}
               >
-                <img src={image.url || "/placeholder.svg"} alt={image.alt} className="w-full h-full object-cover" />
+                <img
+                  src={image.url || "/placeholder.svg"}
+                  alt={image.alt}
+                  className="w-full h-full object-contain bg-black"
+                />
               </div>
             ))}
           </div>
@@ -204,7 +265,7 @@ export function ImageCarousel({ onLastImage }: { onLastImage?: (isLast: boolean)
           </audio>
         </div>
 
-        <div className="mt-6 md:mt-8 flex flex-col items-center gap-5">
+        <div className="mt-4 flex flex-col items-center gap-3">
           <div className="flex gap-2.5">
             {images.map((_, index) => (
               <button
@@ -225,18 +286,18 @@ export function ImageCarousel({ onLastImage }: { onLastImage?: (isLast: boolean)
               onClick={goToPrevious}
               variant="outline"
               size="icon"
-              className="rounded-full h-14 w-14 border-2 border-amber-600 hover:bg-amber-50 hover:border-amber-700 transition-all shadow-lg hover:shadow-xl hover:scale-105 bg-transparent"
+              className="rounded-full h-12 w-12 border-2 border-amber-600 hover:bg-amber-50 hover:border-amber-700 transition-all shadow-lg hover:shadow-xl hover:scale-105 bg-transparent"
             >
-              <ChevronLeft className="h-6 w-6 text-amber-700" />
+              <ChevronLeft className="h-5 w-5 text-amber-700" />
             </Button>
 
             <Button
               onClick={goToNext}
               variant="outline"
               size="icon"
-              className="rounded-full h-14 w-14 border-2 border-amber-600 hover:bg-amber-50 hover:border-amber-700 transition-all shadow-lg hover:shadow-xl hover:scale-105 bg-transparent"
+              className="rounded-full h-12 w-12 border-2 border-amber-600 hover:bg-amber-50 hover:border-amber-700 transition-all shadow-lg hover:shadow-xl hover:scale-105 bg-transparent"
             >
-              <ChevronRight className="h-6 w-6 text-amber-700" />
+              <ChevronRight className="h-5 w-5 text-amber-700" />
             </Button>
           </div>
         </div>
