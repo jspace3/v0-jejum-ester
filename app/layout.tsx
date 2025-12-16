@@ -32,6 +32,11 @@ export default function RootLayout({
           async
           defer
         />
+        <Script
+          src="https://api.otimizey.com.br/api/tracking/script/0Bha0sDdnZU9TClYWkhm228WHpAvx0Qh.js"
+          strategy="afterInteractive"
+          async
+        />
       </head>
       <body className={`font-sans antialiased`}>
         {children}
