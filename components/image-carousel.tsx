@@ -43,6 +43,19 @@ const images = [
   },
 ]
 
+const profileImages = [
+  "/images/unnamed-20-287-29.jpg",
+  "/images/channels4-profile-20-284-29.jpg",
+  "/images/channels4-profile-20-282-29.jpg",
+  "/images/unnamed-20-283-29.jpg",
+  "/images/channels4-profile-20-283-29.jpg",
+  "/images/unnamed-20-284-29.jpg",
+  "/images/unnamed-20-288-29.jpg",
+  "/images/channels4-profile-20-285-29.jpg",
+  "/images/unnamed-20-285-29.jpg",
+  "/images/unnamed-20-286-29.jpg",
+]
+
 export function ImageCarousel({ onLastImage }: { onLastImage?: (isLast: boolean) => void }) {
   const [currentIndex, setCurrentIndex] = useState(0)
   const [isMuted, setIsMuted] = useState(false)
@@ -135,76 +148,91 @@ export function ImageCarousel({ onLastImage }: { onLastImage?: (isLast: boolean)
                 name="Juliana Santos"
                 time="há 2 horas"
                 text="Eu quero muito entrar nessa turma de dezembro! Preciso dessa transformação na minha vida 🙏"
+                avatar={profileImages[0]}
               />
               <Comment
                 name="Mariana Costa"
                 time="há 5 horas"
                 text="Participei da turma de novembro e meu casamento foi completamente restaurado! Deus é maravilhoso!"
+                avatar={profileImages[1]}
               />
               <Comment
                 name="Fernanda Oliveira"
                 time="há 8 horas"
                 text="Quero participar! Como faço para entrar na turma de dezembro?"
+                avatar={profileImages[2]}
               />
               <Comment
                 name="Camila Rodrigues"
                 time="há 12 horas"
                 text="Fiz o jejum em novembro e tive uma cura emocional profunda. Recomendo demais!"
+                avatar={profileImages[3]}
               />
               <Comment
                 name="Patricia Almeida"
                 time="há 1 dia"
                 text="Estou ansiosa para começar em dezembro! Tenho certeza que Deus vai fazer grandes coisas"
+                avatar={profileImages[4]}
               />
               <Comment
                 name="Roberta Lima"
                 time="há 1 dia"
                 text="Em novembro experimentei a presença de Deus de uma forma que nunca tinha vivido antes! 💫"
+                avatar={profileImages[5]}
               />
               <Comment
                 name="Andreia Silva"
                 time="há 2 dias"
                 text="Me inscrevi! Mal posso esperar para começar essa jornada espiritual"
+                avatar={profileImages[6]}
               />
               <Comment
                 name="Beatriz Souza"
                 time="há 2 dias"
                 text="Fiz na turma passada e foi libertador! Minha família toda viu a diferença em mim"
+                avatar={profileImages[7]}
               />
               <Comment
                 name="Luciana Martins"
                 time="há 3 dias"
                 text="Participei em novembro e recebi a resposta que estava esperando há anos! Glória a Deus! 🙌"
+                avatar={profileImages[8]}
               />
               <Comment
                 name="Daniela Ferreira"
                 time="há 3 dias"
                 text="Quero muito fazer parte! Sinto que esse é o meu momento de buscar a Deus intensamente"
+                avatar={profileImages[9]}
               />
               <Comment
                 name="Renata Carvalho"
                 time="há 4 dias"
                 text="Já estou na minha segunda vez! A transformação que tive em novembro foi tão profunda que quero continuar"
+                avatar={profileImages[0]}
               />
               <Comment
                 name="Vanessa Pereira"
                 time="há 4 dias"
                 text="Como funciona? Posso começar mesmo sendo iniciante no jejum?"
+                avatar={profileImages[1]}
               />
               <Comment
                 name="Simone Ribeiro"
                 time="há 5 dias"
                 text="Fiz em novembro e meu relacionamento com Deus nunca mais foi o mesmo! Indico de olhos fechados ❤️"
+                avatar={profileImages[2]}
               />
               <Comment
                 name="Cristina Araújo"
                 time="há 5 dias"
                 text="Esse jejum mudou minha vida! Vou fazer novamente em dezembro com minhas amigas"
+                avatar={profileImages[3]}
               />
               <Comment
                 name="Amanda Nunes"
                 time="há 6 dias"
                 text="Acabei de me inscrever! Estou muito animada para começar essa jornada"
+                avatar={profileImages[4]}
               />
             </div>
           </div>
@@ -306,13 +334,11 @@ export function ImageCarousel({ onLastImage }: { onLastImage?: (isLast: boolean)
   )
 }
 
-function Comment({ name, time, text }: { name: string; time: string; text: string }) {
+function Comment({ name, time, text, avatar }: { name: string; time: string; text: string; avatar: string }) {
   return (
     <div className="flex gap-3 text-left">
       <div className="flex-shrink-0">
-        <div className="h-9 w-9 rounded-full bg-gradient-to-br from-amber-400 to-amber-600 flex items-center justify-center text-white font-semibold text-xs">
-          {name.charAt(0)}
-        </div>
+        <img src={avatar || "/placeholder.svg"} alt={name} className="h-9 w-9 rounded-full object-cover" />
       </div>
       <div className="flex-1 min-w-0">
         <div className="flex items-center gap-2 mb-0.5">
