@@ -76,6 +76,7 @@ export function ImageCarousel({ onLastImage }: { onLastImage?: (isLast: boolean)
     }
     if (currentIndex === images.length) {
       setShowFinalPage(true)
+      window.scrollTo({ top: 0, behavior: "smooth" })
     }
   }, [currentIndex, onLastImage])
 
@@ -129,7 +130,7 @@ export function ImageCarousel({ onLastImage }: { onLastImage?: (isLast: boolean)
             >
               <Button
                 size="lg"
-                className="animate-pulse-subtle bg-gradient-to-r from-amber-500 to-amber-600 px-6 py-3 text-sm font-bold text-white shadow-2xl transition-all duration-300 hover:scale-105 hover:from-amber-600 hover:to-amber-700 md:px-10 md:py-5 md:text-lg rounded-full"
+                className="animate-pulse-strong bg-gradient-to-r from-amber-500 to-amber-600 px-12 py-6 text-lg font-bold text-white shadow-2xl transition-all duration-300 hover:scale-105 hover:from-amber-600 hover:to-amber-700 md:px-16 md:py-8 md:text-2xl rounded-full"
               >
                 Participar Agora
               </Button>

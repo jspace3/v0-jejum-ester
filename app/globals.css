@@ -140,4 +140,21 @@
   .animate-pulse-subtle {
     animation: pulse-subtle 2s ease-in-out infinite;
   }
+
+  /* Animação de pulsação mais forte para o botão principal */
+  @keyframes pulse-strong {
+    0%,
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.9;
+      transform: scale(1.08);
+    }
+  }
+
+  .animate-pulse-strong {
+    animation: pulse-strong 1.5s ease-in-out infinite;
+  }
 }
