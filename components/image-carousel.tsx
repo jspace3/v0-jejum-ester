@@ -276,7 +276,7 @@ export function ImageCarousel({ onLastImage }: { onLastImage?: (isLast: boolean)
     <section className="flex-1 flex items-center justify-center bg-gray-50 px-4 py-4">
       <div className="max-w-md w-full flex flex-col h-full max-h-[calc(100vh-140px)] justify-center">
         <div className="relative overflow-hidden rounded-2xl shadow-2xl w-full" style={{ aspectRatio: "9/16" }}>
-          <div className="relative h-full bg-black">
+          <div className="relative h-full">
             {images.map((image, index) => (
               <div
                 key={index}
@@ -284,11 +284,7 @@ export function ImageCarousel({ onLastImage }: { onLastImage?: (isLast: boolean)
                   index === currentIndex ? "opacity-100 scale-100" : "opacity-0 scale-105"
                 }`}
               >
-                <img
-                  src={image.url || "/placeholder.svg"}
-                  alt={image.alt}
-                  className="w-full h-full object-contain bg-black"
-                />
+                <img src={image.url || "/placeholder.svg"} alt={image.alt} className="w-full h-full object-cover" />
               </div>
             ))}
           </div>
