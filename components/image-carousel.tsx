@@ -54,21 +54,19 @@ const profileImages = [
   "/images/channels4-profile-20-285-29.jpg",
   "/images/unnamed-20-285-29.jpg",
   "/images/unnamed-20-286-29.jpg",
+  "/images/channels4-profile-20-281-29.jpg",
+  "/images/unnamed-20-281-29.jpg",
+  "/images/unnamed-20-282-29.jpg",
+  "/images/channels4-profile.jpg",
+  "/images/unnamed.jpg",
 ]
 
 export function ImageCarousel({ onLastImage }: { onLastImage?: (isLast: boolean) => void }) {
   const [currentIndex, setCurrentIndex] = useState(0)
   const [isMuted, setIsMuted] = useState(false)
   const [showFinalPage, setShowFinalPage] = useState(false)
+  const [audioStarted, setAudioStarted] = useState(false)
   const audioRef = useRef<HTMLAudioElement>(null)
-
-  useEffect(() => {
-    if (audioRef.current) {
-      audioRef.current.play().catch(() => {
-        console.log("[v0] Autoplay bloqueado pelo navegador")
-      })
-    }
-  }, [])
 
   useEffect(() => {
     if (onLastImage) {
@@ -80,7 +78,17 @@ export function ImageCarousel({ onLastImage }: { onLastImage?: (isLast: boolean)
     }
   }, [currentIndex, onLastImage])
 
+  const playAudio = () => {
+    if (audioRef.current && !audioStarted) {
+      audioRef.current.play().catch((error) => {
+        console.log("[v0] Erro ao reproduzir áudio:", error)
+      })
+      setAudioStarted(true)
+    }
+  }
+
   const goToPrevious = () => {
+    playAudio()
     if (showFinalPage) {
       setShowFinalPage(false)
       setCurrentIndex(images.length - 1)
@@ -90,6 +98,7 @@ export function ImageCarousel({ onLastImage }: { onLastImage?: (isLast: boolean)
   }
 
   const goToNext = () => {
+    playAudio()
     if (currentIndex === images.length - 1) {
       setShowFinalPage(true)
       setCurrentIndex(images.length)
@@ -100,6 +109,12 @@ export function ImageCarousel({ onLastImage }: { onLastImage?: (isLast: boolean)
 
   const toggleMute = () => {
     if (audioRef.current) {
+      if (!audioStarted) {
+        audioRef.current.play().catch((error) => {
+          console.log("[v0] Erro ao reproduzir áudio:", error)
+        })
+        setAudioStarted(true)
+      }
       audioRef.current.muted = !isMuted
       setIsMuted(!isMuted)
     }
@@ -209,37 +224,37 @@ export function ImageCarousel({ onLastImage }: { onLastImage?: (isLast: boolean)
                 name="Renata Carvalho"
                 time="há 4 dias"
                 text="Já estou na minha segunda vez! A transformação que tive em novembro foi tão profunda que quero continuar"
-                avatar={profileImages[0]}
+                avatar={profileImages[10]}
               />
               <Comment
                 name="Vanessa Pereira"
                 time="há 4 dias"
                 text="Como funciona? Posso começar mesmo sendo iniciante no jejum?"
-                avatar={profileImages[1]}
+                avatar={profileImages[11]}
               />
               <Comment
                 name="Simone Ribeiro"
                 time="há 5 dias"
                 text="Fiz em novembro e meu relacionamento com Deus nunca mais foi o mesmo! Indico de olhos fechados ❤️"
-                avatar={profileImages[2]}
+                avatar={profileImages[12]}
               />
               <Comment
                 name="Cristina Araújo"
                 time="há 5 dias"
                 text="Esse jejum mudou minha vida! Vou fazer novamente em dezembro com minhas amigas"
-                avatar={profileImages[3]}
+                avatar={profileImages[13]}
               />
               <Comment
                 name="Amanda Nunes"
                 time="há 6 dias"
                 text="Acabei de me inscrever! Estou muito animada para começar essa jornada"
-                avatar={profileImages[4]}
+                avatar={profileImages[14]}
               />
             </div>
           </div>
         </div>
 
-        <audio ref={audioRef} loop autoPlay className="hidden">
+        <audio ref={audioRef} loop className="hidden">
           <source src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/mp3-do-milhao-tb8plZkabeydIVBamyrelnI99vQnr9.MP3" type="audio/mpeg" />
         </audio>
 
@@ -289,7 +304,7 @@ export function ImageCarousel({ onLastImage }: { onLastImage?: (isLast: boolean)
             </Button>
           </div>
 
-          <audio ref={audioRef} loop autoPlay className="hidden">
+          <audio ref={audioRef} loop className="hidden">
             <source src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/mp3-do-milhao-tb8plZkabeydIVBamyrelnI99vQnr9.MP3" type="audio/mpeg" />
           </audio>
         </div>
