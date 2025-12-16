@@ -3,6 +3,7 @@
 import { useState, useRef, useEffect } from "react"
 import { ChevronLeft, ChevronRight, Volume2, VolumeX } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import Image from "next/image"
 
 const images = [
   {
@@ -69,6 +70,13 @@ export function ImageCarousel({ onLastImage }: { onLastImage?: (isLast: boolean)
   const audioRef = useRef<HTMLAudioElement>(null)
 
   useEffect(() => {
+    if (currentIndex < images.length - 1) {
+      const nextImage = new window.Image()
+      nextImage.src = images[currentIndex + 1].url
+    }
+  }, [currentIndex])
+
+  useEffect(() => {
     if (onLastImage) {
       onLastImage(currentIndex === images.length - 1)
     }
@@ -124,7 +132,8 @@ export function ImageCarousel({ onLastImage }: { onLastImage?: (isLast: boolean)
     return (
       <section className="relative w-full bg-gray-900">
         <div className="relative flex-shrink-0">
-          <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: "url(/cta-background.jpeg)" }}>
+          <div className="absolute inset-0">
+            <Image src="/cta-background.jpeg" alt="Background" fill className="object-cover" priority quality={85} />
             <div className="absolute inset-0 bg-black/40" />
           </div>
 
@@ -284,7 +293,16 @@ export function ImageCarousel({ onLastImage }: { onLastImage?: (isLast: boolean)
                   index === currentIndex ? "opacity-100 scale-100" : "opacity-0 scale-105"
                 }`}
               >
-                <img src={image.url || "/placeholder.svg"} alt={image.alt} className="w-full h-full object-cover" />
+                <Image
+                  src={image.url || "/placeholder.svg"}
+                  alt={image.alt}
+                  fill
+                  className="object-cover"
+                  priority={index === 0}
+                  loading={index === 0 ? "eager" : "lazy"}
+                  quality={90}
+                  sizes="(max-width: 768px) 100vw, 448px"
+                />
               </div>
             ))}
           </div>
@@ -350,7 +368,17 @@ function Comment({ name, time, text, avatar }: { name: string; time: string; tex
   return (
     <div className="flex gap-3 text-left">
       <div className="flex-shrink-0">
-        <img src={avatar || "/placeholder.svg"} alt={name} className="h-9 w-9 rounded-full object-cover" />
+        <div className="relative h-9 w-9 rounded-full overflow-hidden">
+          <Image
+            src={avatar || "/placeholder.svg"}
+            alt={name}
+            fill
+            className="object-cover"
+            loading="lazy"
+            quality={75}
+            sizes="36px"
+          />
+        </div>
       </div>
       <div className="flex-1 min-w-0">
         <div className="flex items-center gap-2 mb-0.5">
